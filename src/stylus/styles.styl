@@ -1,0 +1,113 @@
+@import "./normalize.css"
+@import "_variables"
+
+body
+  font-family 'Montserrat', sans-serif
+  fuente(16px, 400, $gris3F)
+
+h2
+	fuente(1.375rem, 400, $verde)
+
+.header
+	max-width 1440px
+	padding 40px 20px 20px
+
+	img
+		width 250px
+
+.main
+	padding 0 20px
+	display grid
+	grid-template-columns 1fr
+
+	.menu
+		margin-right 20px
+
+		ul
+			padding 0
+			list-style none
+
+			li
+				padding-bottom 15px
+
+				a
+					color $gris3F
+					text-decoration none
+					transition all .4s ease-in-out
+
+					&:hover
+						color $verde
+						text-decoration underline
+
+	.faq
+		line-height 1.4rem
+
+		.accordion
+			margin-bottom 20px
+			overflow hidden
+			transition all .55s ease-in-out
+
+			&__title
+				position relative
+				display block
+				box-sizing border-box
+				min-height 40px
+				padding 10px 15px
+				border-radius 4px
+				fuente(1.25rem, 400, $blanco)
+				background-color $verde
+				box-shadow 0 0 10px alpha($negro, .4)
+				text-decoration none
+				transition all .3s ease-in-out
+
+				&:after
+					content '+'
+					position absolute
+					right 10px
+					fuente(1.75rem, bold)
+					line-height 1
+					transition all .3s ease-in-out
+
+				&:hover
+					background-color $verdeRollover
+
+				&.active
+					background-color $verdeRollover
+					border-radius 4px 4px 0 0
+					&:after
+						transform rotate(45deg)
+
+			&__content
+				padding 10px
+				border-radius 0 0 4px 4px
+				background-color $grisED
+
+				ol
+					margin 0
+					padding-left 30px
+					counter-reset li
+					list-style none
+
+					& > li
+						position relative
+
+						&:before
+							counter-increment li
+							content counter(li)
+							position absolute
+							top 1px
+							left -15px
+							fuente(1.125rem, bold, $verde)
+
+						p:first-child
+							fuente(1.125rem, bold, $verde)
+
+				a
+					font-weight bold
+					color $verde
+
+					&:hover
+						text-decoration none
+
+	@media screen and (min-width 768px)
+		grid-template-columns 230px 1fr

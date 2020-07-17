@@ -1,0 +1,29 @@
+-var menu = ["Guía de servicios de inversión", "Cliente Sofisticado", "Cuestionario de Perfil Financiero - Persona Física", "Cuestionario de Perfil Financiero - Persona Moral"]
+-var links = ["#","#","link3","link4"]
+
+mixin linkList(link, name)
+	li: a(href=link) #{name}
+
+mixin accordion(title)
+	.accordion
+		a.accordion__title(href="#") #{title}
+		.accordion__content
+			if block
+				block
+			else
+				p No content provided
+
+doctype html
+html
+	head
+		title Skandia GO
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, maximum-scale=1.0, user-scalable=no')
+		link(rel="stylesheet", href="./fonts/montserrat.css")
+		link(rel="stylesheet", href="./css/styles.css")
+		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
+	body
+		header.header
+			img(src="./images/logo-skandia.svg", alt="Skandia")
+		block contents
